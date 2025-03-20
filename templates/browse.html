@@ -1,0 +1,88 @@
+{% include 'header.html' %}
+    <div class="container-fluid browse">
+        <div id="filter-container">
+            <p class="fs-4">Homepage > Browsehandyman</p>
+            <div class="filter-div">
+                <form action="">
+                    <br><div><h4>Filter</h4></div><br>
+                    <input class="ps-3 fs-4 " type="text" placeholder="Categories"><br>
+                    <input class="ps-3 fs-4 " type="text" placeholder="Pricing"><br>
+                    <input class="ps-3 fs-4" type="text" placeholder="Availability"><br>
+                    <button class="btn btn-primary mb-3 fs-4" type="submit">Go</button>
+                </form>
+            </div>
+
+        </div>
+        <div id="browse-container">
+            <div class="view" id="popup">
+    
+                <div class="container-fluid">
+                    <div class="view-handyman-container">
+                        <h1>view handyman</h1>
+                        <button class="btn btn-primary fs-4 mb-2" id="back-button">< back</button>
+                    </div>
+                    <hr>
+                    <div class="personal-info">
+                        <div class="img-and-buttons-container">
+                            <div class="img-container">
+                                <img src="" alt="">
+                            </div>
+                            <div class="buttons-container">
+                                <button class="btn btn-primary change-button-color" id="first-button"></button><button class="btn btn-primary change-button-color"></button><button class="btn btn-primary change-button-color"></button>
+                            </div>
+                        </div>
+                        <div class="info-container">
+                            <h2>Person Name</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio doloremque neque rerum modi mollitia quaerat accusantium fuga, maxime doloribus. Temporibus, nobis repellat recusandae aut quae earum sit ratione id illo?</p>
+                            <div class="px-2">
+                                <p>Cleaner</p>
+                            </div>
+                            <div class="px-2">
+                                <p>Monday-Friday(8 hours)</p>
+                            </div>
+                            <div class="px-2">
+                                <p>GHC 3000/day</p>
+                            </div>
+                            <button class="btn btn-primary mb-3 fs-4" type="submit">Call me</button>
+                        </div>
+                    </div>
+                    <div class="my-works">
+                        <h2>My Works</h2>
+                        <div class="my-works-img-container">
+                            <div class="img-container">
+        
+                            </div>
+                            <div class="img-container">
+        
+                            </div>
+                            <div class="img-container">
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for i in range(10) %}
+            <div class="employer ps-3">
+                <div class="details">
+                    <h3>John Doe</h3>
+                    <div class="px-2">
+                        <p>Cleaner</p>
+                    </div>
+                    <div class="px-2">
+                        <p>Monday-Friday(8 hours)</p>
+                    </div>
+                    <div class="px-2">
+                        <p>GHC {{ random.randint(2, 6) / 2 }}000/day</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="../static/assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

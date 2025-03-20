@@ -1,0 +1,118 @@
+{% include 'header.html' %}
+    
+      <div class="p-3 mb-4 bg-body-tertiary rounded-3" id="landing-page">
+        <div class="container-fluid py-5">
+          <h2 class="display-5 fw-bold">Better than <br> word of mouth</h2>
+          <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+          <div class="buttons">
+            <button class="btn btn-primary  get-started" type="button" onclick="window.location.href='{{ url_for('browse') }}'">Get started</button>
+            <button class="btn btn-primary  find-handyman" type="button">Find a handyman</button>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-3" id="bg-body-tertiary">
+        <div class="img-container">
+            <img src="../static/images/repairman-optimizes-hvac-system-efficacy.jpg" alt="" height="800" width="600">
+        </div>
+        <div class="container-fluid py-5">
+          <h2 class="display-5 fw-bold">The all in one site that allows you to find workers in a quarter of the time with a fraction of the effort.</h2>
+          <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+          <div class="buttons">
+            <button class="btn btn-primary get-started" type="button" onclick="window.location.href='{{ url_for('browse') }}'">Get started</button>
+            
+          </div>
+          <div class="workers-display-container">
+            <div class="workers-display">
+                <div class="worker">
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <h3>Professional cleaner</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde sapiente ducimus accusantium? Fugiat dicta excepturi odit, perspiciatis sit voluptatum neque porro accusantium. Dolor maxime, vel voluptatem ipsa deleniti incidunt. Officiis!</p>
+                </div>
+            </div>
+            <div class="scroll-buttons">
+                <button class="button change-button-color" id="button-one"></button>
+                <button class="button change-button-color" id="button-two"></button>
+                <button class="button change-button-color" id="button-three"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="services-body" class="mt-5">
+        <div class="services-container">
+          <div class="services">
+            <div class="services-text-container">
+              <p class="ms-5">Even better than word of mouth</p>
+              <h1 class="mb-5 ms-5">Our services</h1>
+            </div>
+            <div class="img-container">
+              <img src="../static/images/Path.png" alt="">
+            </div>
+          </div>
+      
+        </div>
+        <div class="ease-container mt-5">
+          <div class="ease-text-container px-5">
+            <h3 class="mb-4">Easing the process of finding experienced artisans, and providing a seamless way of finding clients. </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate repellendus minus natus aperiam dolor sint. Facere, ex. Magni aspernatur modi praesentium aut accusantium recusandae illo reiciendis non unde ab iste sequi, similique vero beatae a ipsa, dolore optio animi consequuntur reprehenderit maiores aliquam et. Recusandae corporis ea maiores impedit quo!</p>
+            <div class="ease-access-flexibility d-flex mt-5" id="ease-access-flexibility">
+              <div class="ease-access m-auto px-3 py-4" >
+                <h2>Ease of Access</h2>
+                <p>Our platform provides handymen and clients with easy access to maintenance, cleaning and care services.</p>
+              </div>
+              <div class="flexibility m-auto px-3 py-4">
+              <h2>Flexibility</h2>
+              <p>We offer flexible scheduling options to accommodate the busy lives of both clients and handymen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="img-container d-flex">
+              <img class="f-b-r" src="../static/images/halfman.png" alt="">
+              <img class="s-b-r" src="../static/images/baby&mother.png" alt="">
+              <img class="t-b-r" src="../static/images/halfwoman.png" alt="">
+          </div>
+        </div>
+        <div class="third-section d-flex px-5">
+          <div class="painters-smiling">
+            <img src="../static/images/twopainters.png" alt="">
+          </div>
+          <div class="avoid-hustling d-flex flex-column justify-content-center px-5">
+            <img src="../static/images/hugeicons_yoga-01.png" alt="" height="50" width="50">
+            <h3 class="mt-1">Avoid the hustle of asking around, with our diverse pool of qualified professionals.</h3>
+            <p class="mt-3">At Handyman, we offer a huge pool of professional and ethical workers, easily found with a quick search and filter. We eradicate the tedious process of asking around to find a plumber to fix that leaky tap in your kitchen. It’s never been easier to maintain a space!</p>
+          </div>
+        </div>
+        <div class="fourth-section d-flex justify-content-center align-items-center flex-column">
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <p style="color: #01614F;">Find Your Perfect Match</p>
+            <h2>Discover the Right Worker for You</h2>
+            <p>At Handyman, we offer a huge pool of professional and ethical workers, easily found with a quick search and filter. We eradicate the tedious process of asking around to find a plumber to fix that leaky tap in your kitchen. It’s never been easier to maintain a space!</p>
+          </div>
+        </div>
+        <div class="bg-white d-flex px-5 pb-4 pt-lg-5">
+          <div class="handyman-focus d-flex flex-column justify-content-start p-4">
+            <img src="../static/images/mingcute_target-fill.png" alt="" height="40" width="40">
+            <h3>Find Your Perfect Match Today</h3>
+            <p>Handyman has a diverse range of services designed to offer accessibility and flexibility for both clients and artisans. Our platform caters to various specialties, including plumbers, painters, electricians, masons, and babysitters, ensuring a seamless experience for all seeking these services.</p>
+            <a href="">Learn more </a>
+          </div>
+          <div class="handyman-focus d-flex flex-column justify-content-start p-4"">
+            <img src="../static/images/fluent_people-community-16-filled.png" alt="" height="40" width="40">
+            <h3>Explore Our Professional Network</h3>
+            <p>Handyman has a diverse range of services designed to offer accessibility and flexibility for both clients and artisans. Our platform caters to various specialties, including plumbers, painters, electricians, masons, and babysitters, ensuring a seamless experience for all seeking these services.</p>
+            <a href="">Learn more </a>
+          </div>
+          <div class="handyman-focus d-flex flex-column justify-content-start p-4"">
+            <img src="../static/images/Vector.png" alt="" height="40" width="40">
+            <h3>Get A Handyman</h3>
+            <p>Handyman has a diverse range of services designed to offer accessibility and flexibility for both clients and artisans. Our platform caters to various specialties, including plumbers, painters, electricians, masons, and babysitters, ensuring a seamless experience for all seeking these services.</p>
+            <a href="">Learn more </a>
+          </div>
+        </div>
+      </div>
+      {% include 'footer.html' %}
+      <script src="../static/assets/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="dashboard-items-container d-flex flex-column">
+    <div class="dashboard mb-4 mt-4">
+        <a href="{{ url_for('dashboard')}}" class="d-flex">
+        <img src="../static/icons/dashboard.png" alt="" width="32" height="32">
+             <p class="ms-3 ">Dashboard</p>   
+        </a>
+    </div>
+    <div class="dashboard mb-4">
+        <a href="{{ url_for('jobs')}}" class="d-flex">
+        <img src="../static/icons/Job.png" alt="" width="32" height="32">
+             <p class="ms-3">Jobs</p>   
+        </a>
+    </div>
+    <div class="settings mb-4">
+        <a href="" class="d-flex">
+        <img src="../static/icons/settings.png" alt="" width="32" height="32">
+            <p class="ms-3">Settings</p>                        
+        </a>
+    </div>
+    <div class="analytics mb-4">
+        <a href="{{ url_for('analytics')}}" class="d-flex">
+        <img src="../static/icons/graph.png" alt="" width="32" height="32">
+            <p class="ms-3">Analytics</p>                        
+        </a>
+    </div>
+    <div class="inbox mb-4">
+        <a href="{{ url_for('inbox')}}" class="d-flex">
+        <img src="../static/icons/mailbox.png" alt="" width="32" height="32">
+            <p class="ms-3">Inbox</p>                        
+        </a>
+    </div>
+    <div class="review mb-4">
+        <a href="{{ url_for('review')}}" class="d-flex">
+            <img src="../static/icons/star.png" alt="" width="32" height="32">
+            <p class="ms-3">Review</p>                        
+        </a>
+    </div>
+    <div class="profile mb-5 mt-auto pt-2">
+        <a href="{{ url_for('profile')}}" class="d-flex">
+        <img src="../static/icons/profile.png" alt="" width="32" height="32">
+            <p class="ms-3 fw-bolder">Profile</p>
+        </a>
+
+    </div>
+</div>
