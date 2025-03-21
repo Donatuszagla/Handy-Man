@@ -1,80 +1,103 @@
-document.querySelectorAll('.scroll-buttons .change-button-color').forEach(button => {
-    button.addEventListener('click', function (){
-        let all_buttons = document.querySelectorAll('.scroll-buttons .change-button-color')
-        all_buttons.forEach(btn => {
-            btn.style.transition = 'background-color 1s ease-in-out';
-            btn.style.backgroundColor = '#D1E8FF'; 
+document.addEventListener("DOMContentLoaded", () => {
+    // Change button color logic
+    document.querySelectorAll('.scroll-buttons .change-button-color, .buttons-container .change-button-color').forEach(button => {
+        button.addEventListener('click', function () {
+            const allButtons = document.querySelectorAll('.scroll-buttons .change-button-color, .buttons-container .change-button-color');
+            allButtons.forEach(btn => {
+                btn.style.transition = 'background-color 0.5s ease-in-out';
+                btn.style.backgroundColor = '#D1E8FF';
+            });
+            this.style.transition = 'background-color 0.5s ease-in-out';
+            this.style.backgroundColor = '#0B1957';
         });
-        this.style.transition = 'background-color 1s ease-in-out';
-        this.style.backgroundColor = '#0B1957';
-    })
-});
-document.querySelectorAll('.buttons-container .change-button-color').forEach(button => {
-    button.addEventListener('click', function (){
-        let all_buttons = document.querySelectorAll('.buttons-container .change-button-color')
-        all_buttons.forEach(btn => {
-            btn.style.transition = 'background-color 0.5s ease-in-out';
-            btn.style.backgroundColor = '#D1E8FF'; 
+    });
+
+    // Popup logic
+    const popup = document.getElementById('popup');
+    if (popup) {
+        document.querySelectorAll('.employer').forEach(container => {
+            container.addEventListener('click', function () {
+                popup.style.right = '0';
+            });
         });
-        this.style.transition = 'background-color 0.5s ease-in-out';
-        this.style.backgroundColor = '#0B1957';
-    })
-});
 
-document.querySelectorAll('.employer').forEach(container => {
-    container.addEventListener('click', function () {
-        document.getElementById('popup').style.right = '0';
-    })
-});
-document.getElementById('services-button').addEventListener('click', () =>{
-    document.getElementById('services-body').scrollIntoView({ behavior: 'smooth', block: 'start' })
-});
-
-document.getElementById("log-out-button").addEventListener("click", () =>{
-    const logout = document.getElementById("log-out");
-    logout.style.visibility === "hidden" ? logout.style.visibility = "visible" : logout.style.visibility = "hidden" ;
-});
-
-document.getElementById('back-button').addEventListener('click', function () {
-    document.getElementById('popup').style.right = '-50%';
-});
-
-    const circle = document.querySelector('.progress-ring__circle circle');
-    const radius = circle.r.baseVal.value;
-    const circumference = 2 * Math.PI * radius;
-
-    // Initialize the circle with 20% progress
-    circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    circle.style.strokeDashoffset = circumference - (0 / 100) * circumference;
-
-    // Function to update the progress
-    function setProgress(percent) {
-      const offset = circumference - (percent / 100) * circumference;
-      circle.style.strokeDashoffset = offset;
-      document.querySelector('.progress-ring__text').textContent = `${percent}%`;
+        const backButton = document.getElementById('back-button');
+        if (backButton) {
+            backButton.addEventListener('click', function () {
+                popup.style.right = '-50%';
+            });
+        }
     }
 
-    // Example: Update progress to 75% after 2 seconds
+    // Services button logic
+    const servicesButton = document.getElementById('services-button');
+    if (servicesButton) {
+        servicesButton.addEventListener('click', () => {
+            const servicesBody = document.getElementById('services-body');
+            if (servicesBody) {
+                servicesBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
 
-    setProgress(75);
+    // Logout button logic
+    const logoutButton = document.getElementById('log-out-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            const logout = document.getElementById('log-out');
+            if (logout) {
+                logout.style.visibility === "hidden" ? logout.style.visibility = "visible" : logout.style.visibility = "hidden";
+            }
+        });
+    }
+    // About company button logic
+    const aboutCompany = document.getElementById("company-button");
+    if (aboutCompany) {
+        aboutCompany.addEventListener('click', () => {
+            const about = document.getElementById("about-company");
+            if (about) {
+                about.style.right = "38%";
+                about.style.top = "60px";
+                about.style.visibility === "hidden" ? about.style.visibility = "visible" : about.style.visibility = "hidden";
+            }
+        });
+    }
 
-// Array of month names
-const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-];
-    
-// Get the select element
-const selectElement = document.getElementById("months");
-    
-// Add each month as an option
-months.forEach((month, index) => {
-    const option = document.createElement("option");
-    option.value = index + 1; // Month number (1-12)
-    option.text = month; // Month name
-    selectElement.appendChild(option);
+
+    // Progress ring logic
+    const circle = document.querySelector('.progress-ring__circle circle');
+    if (circle) {
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference - (0 / 100) * circumference;
+
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            const progressText = document.querySelector('.progress-ring__text');
+            if (progressText) {
+                progressText.textContent = `${percent}%`;
+            }
+        }
+
+        setProgress(75); // Example: Set progress to 75%
+    }
+
+    // Month dropdown logic
+    const selectElement = document.getElementById("months");
+    if (selectElement) {
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        months.forEach((month, index) => {
+            const option = document.createElement("option");
+            option.value = index + 1; // Month number (1-12)
+            option.text = month; // Month name
+            selectElement.appendChild(option);
+        });
+    }
 });
-
-
-
-

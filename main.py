@@ -85,7 +85,7 @@ def logout():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/home/handyman', methods=['GET', 'POST'])
 def browse():
@@ -119,7 +119,7 @@ def jobs():
 def findjob():
     return render_template('findjob.html')
 
-@app.route('/jobs/availabel', methods=['GET', 'POST'])
+@app.route('/jobs/availabelz', methods=['GET', 'POST'])
 def availablejob():
     return render_template('availablejob.html')
 
@@ -131,6 +131,10 @@ def settings():
 def profile():
     return render_template('profile.html')
 
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=5000)
