@@ -1099,6 +1099,19 @@ a.link-secondary{
 .profile-self .edit-profile-container{
     margin: 0 0 0 40vh;
 }
+.profile-self .profile-details{
+    height: 50vh;
+}
+.profile-self .profile-details > div{
+    height: 80%;
+}
+.profile-self .profile-details > div div{
+    width: 50%;
+    height: 50%;
+}
+.profile-self .profile-details > div div div label{
+    font-weight: bold;
+}
 .profile-self form div input{
     border: 1px solid #939393;
     padding: 0 10px;
@@ -1106,11 +1119,11 @@ a.link-secondary{
 }
 .profile-self form > input{
     background-color: transparent;
-    color: #0B1957;
+    color: #ffffff;
     width: fit-content;
     height: fit-content;
     padding: 5px 20px;
-    border: 1px solid #0B1957;
+    border: 1px solid #ffffff;
     margin-left: auto;
     margin-right: 20%;
     transition: 0.5s ease-in-out;
@@ -1120,12 +1133,32 @@ a.link-secondary{
     color: #fff;
     border-color: #002fff;
 }
+#edit-profile-button{
+    width: fit-content;
+    background-color: transparent;
+    transition: 0.5s ease-in-out;
+}
+#edit-profile-button:hover{
+    color: #002fff;
+}
 .profile-self form > p{
     color: #afafaf;
 }
 .profile-self form div label{
     width: fit-content;
     margin: 5px 0 3px 0;
+    color: #fff;
+}
+.profile-self .form-container{
+    position: absolute;
+    height: 55vh;
+    width: 55vw;
+    background-color: rgba(29, 15, 101, 0.9);
+    padding: 2.5vh 2.5vw;
+    left: 25%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    visibility: hidden;
 }
 .profile-self form{
     height: 50vh;

@@ -100,4 +100,22 @@ document.addEventListener("DOMContentLoaded", () => {
             selectElement.appendChild(option);
         });
     }
+    // edit profile logic
+    const editProfile = document.getElementById("edit-profile-button");
+    const showForm = document.querySelector(".profile-self .form-container");
+    
+    if (editProfile && showForm) {
+      // Open the form when the edit button is clicked
+      editProfile.addEventListener("click", () => {
+        showForm.style.visibility = "visible";
+    
+        // Add a click event listener to the document to close the form when clicking outside
+        document.addEventListener("click", (event) => {
+          if (!showForm.contains(event.target) && event.target !== editProfile) {
+            showForm.style.visibility = "hidden";
+          }
+        });
+      });
+    }
+
 });

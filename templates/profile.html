@@ -19,46 +19,86 @@
            </div>
            <div class="edit-profile-container d-flex flex-column">
             <h1>John Doe</h1>
-            <p>Edit profile</p>
-            <form action="">
-                <input type="button" value="Save changes">
-                <p class="fs-5">Personal details</p>
+            <button id="edit-profile-button">Edit Profile</button>
+            <div class="profile-details">
+                <p class="fs-5 mt-4">Personal details</p>
                 <hr style="border: 0; height: 1px; background-color: #000; width: 80%;">
                 <div class="d-flex mt-2">
                     <div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">First Name</label>
-                            <input type="text" placeholder="John">
+                            <label>First Name</label>
+                            <p>John</p>
                         </div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Mobile Number</label>
-                            <input type="text" placeholder="+233 500000000">
+                            <label>Mobile Number</label>
+                            <p>+233 500000000</p>
                         </div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Location</label>
-                            <input type="text" placeholder="Kumasi, Ghana">
+                            <label>Location</label>
+                            <p>Kumasi, Ghana</p>
                         </div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Email</label>
-                            <input type="email" placeholder="johndoe@email.com">
+                            <label >Email</label>
+                            <p>johndoe@email.com</p>
                         </div>
                     </div>
                     <div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Last Name</label>
-                            <input type="text" placeholder="Doe">
+                            <label>Last Name</label>
+                            <p>Doe</p>
                         </div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Job title</label>
-                            <input type="text" placeholder="Plumber">
+                            <label>Job title</label>
+                            <p>Plumber</p>
                         </div>
                         <div class="d-flex flex-column">
-                            <label for="firstName">Skills & Expertise</label>
-                            <input type="text" placeholder="PVC pipes installation">
+                            <label>Skills & Expertise</label>
+                            <p>PVC pipes installation</p>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="form-container">
+                <form action="">
+                    <input type="button" value="Save changes">
+                    <p class="fs-5">Personal details</p>
+                    <hr style="border: 0; height: 1px; background-color: #000; width: 80%;">
+                    <div class="d-flex mt-2">
+                        <div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">First Name</label>
+                                <input type="text" placeholder="John">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Mobile Number</label>
+                                <input type="text" placeholder="+233 500000000">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Location</label>
+                                <input type="text" placeholder="Kumasi, Ghana">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Email</label>
+                                <input type="email" placeholder="johndoe@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Last Name</label>
+                                <input type="text" placeholder="Doe">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Job title</label>
+                                <input type="text" placeholder="Plumber">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="firstName">Skills & Expertise</label>
+                                <input type="text" placeholder="PVC pipes installation">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="logout position-absolute">
                 <button class="d-flex" onclick="window.location.href='{{ url_for('logout') }}'">
                     <img src="../static/icons/Logout Rounded.png" alt="" width="24" height="24">
@@ -67,8 +107,8 @@
             </div>
            </div>
         </div>
-            
     </div>
+
     {% include 'footer.html' %}
     <script src="../static/assets/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
