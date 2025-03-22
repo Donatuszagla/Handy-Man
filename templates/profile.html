@@ -18,7 +18,11 @@
                 </div>
            </div>
            <div class="edit-profile-container d-flex flex-column">
+            {% if current_user.is_authenticated %}
+            <h1>{{current_user.username }}</h1>
+            {% else %}
             <h1>John Doe</h1>
+            {% endfor %}
             <button id="edit-profile-button">Edit Profile</button>
             <div class="profile-details">
                 <p class="fs-5 mt-4">Personal details</p>
@@ -39,7 +43,11 @@
                         </div>
                         <div class="d-flex flex-column">
                             <label >Email</label>
-                            <p>johndoe@email.com</p>
+                            {% if current_user.is_authenticated %}
+                            <h1>{{current_user.email }}</h1>
+                            {% else %}
+                            <h1>johndoe12@gmail.com</h1>
+                            {% endfor %}
                         </div>
                     </div>
                     <div>
