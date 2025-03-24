@@ -1,12 +1,21 @@
 {% include 'header.html' %}
-    
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages: %}
+      {% for message in messages: %}
+      <span>
+        {{ message }}
+      </span>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
       <div class="p-3 mb-4 bg-body-tertiary rounded-3" id="landing-page">
         <div class="container-fluid py-5">
           <h2 class="display-5 fw-bold">Better than <br> word of mouth</h2>
           <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
           <div class="buttons">
-            <button class="btn btn-primary  get-started" type="button" onclick="window.location.href='{{ url_for('browse') }}'">Get started</button>
-            <button class="btn btn-primary  find-handyman" type="button">Find a handyman</button>
+            <button class="btn btn-primary  get-started" type="button" onclick="window.location.href='{{ url_for('viewjobs') }}'">Get started</button>
+            <button class="btn btn-primary  find-handyman" type="button" onclick="window.location.href='{{ url_for('browse') }}'">Find a handyman</button>
           </div>
         </div>
       </div>
@@ -18,7 +27,7 @@
           <h2 class="display-5 fw-bold">The all in one site that allows you to find workers in a quarter of the time with a fraction of the effort.</h2>
           <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
           <div class="buttons">
-            <button class="btn btn-primary get-started" type="button" onclick="window.location.href='{{ url_for('browse') }}'">Get started</button>
+            <button class="btn btn-primary get-started" type="button" onclick="window.location.href='{{ url_for('viewjobs') }}'">Get started</button>
             
           </div>
           <div class="workers-display-container">

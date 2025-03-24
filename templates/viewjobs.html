@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handyman Jobs Ghana</title>
+    <meta name="description" content="Find the perfect handyman job in Ghana that matches your skills" />
+    <link rel="stylesheet" href="../static/assets/vstyles.css" />
+  </head>
+  <body>
+    <div class="app">
+      {% include 'header.html' %}
+      <!-- <header class="header">
+        <div class="header-left">
+          <button class="menu-button" id="toggleFilter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon">
+              <line x1="4" x2="20" y1="12" y2="12"/>
+              <line x1="4" x2="20" y1="6" y2="6"/>
+              <line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <a href="/" class="logo">
+            <span class="logo-text">handyman.</span>
+          </a>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link">Jobs</a>
+          <a href="#" class="nav-link">Dashboard</a>
+          <a href="#" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-right">
+          <button class="btn btn-outline sign-in-btn">Sign in</button>
+          <button class="btn btn-primary">Get Started</button>
+        </div>
+      </header> -->
+      
+      <main class="main">
+        <aside class="sidebar" id="filterSidebar">
+          <div class="sidebar-mobile-header">
+            <h2 class="sidebar-title">Filters</h2>
+            <button class="close-button" id="closeSidebar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="filter-heading">Filter</h3>
+            <div class="search-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.3-4.3"/>
+              </svg>
+              <input type="search" placeholder="Search jobs..." class="search-input" id="searchInput">
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="filter-heading">Categories</h3>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="fullTime" class="checkbox">
+                <label for="fullTime" class="checkbox-label">Full Time</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="partTime" class="checkbox">
+                <label for="partTime" class="checkbox-label">Part Time</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="contract" class="checkbox">
+                <label for="contract" class="checkbox-label">Contract</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="temporary" class="checkbox">
+                <label for="temporary" class="checkbox-label">Temporary</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="filter-section">
+            <div class="slider-header">
+              <h3 class="filter-heading">Salary Range</h3>
+              <span class="salary-value" id="salaryValue">GHS 1k+</span>
+            </div>
+            <input type="range" min="0" max="10" value="1" step="0.5" class="slider" id="salarySlider">
+            <div class="slider-labels">
+              <span>GHS 0</span>
+              <span>GHS 10k+</span>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="filter-section">
+            <h3 class="filter-heading">Location</h3>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="accra" class="checkbox">
+                <label for="accra" class="checkbox-label">Accra</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="kumasi" class="checkbox">
+                <label for="kumasi" class="checkbox-label">Kumasi</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="takoradi" class="checkbox">
+                <label for="takoradi" class="checkbox-label">Takoradi</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button class="btn btn-primary btn-full" id="applyFilters">Apply Filters</button>
+          </div>
+        </aside>
+
+        <div class="content">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Browse Handyman Jobs in Ghana</h1>
+              <p class="page-description">Find the perfect handyman job that matches your skills</p>
+            </div>
+            
+            <button class="btn btn-outline filters-button" id="showFiltersMobile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+              </svg>
+              Filters
+            </button>
+          </div>
+          
+          <div class="job-grid" id="jobGrid">
+            <!-- Jobs will be populated by JavaScript -->
+          </div>
+
+          <div class="loading-grid" id="loadingGrid">
+            <div class="loading-card"></div>
+            <div class="loading-card"></div>
+            <div class="loading-card"></div>
+            <div class="loading-card"></div>
+            <div class="loading-card"></div>
+            <div class="loading-card"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Job details sidebar -->
+      <div class="job-detail-sidebar" id="jobDetailSidebar">
+        <div class="job-detail-header">
+          <button class="close-button" id="closeJobDetail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"/>
+              <path d="m6 6 12 12"/>
+            </svg>
+          </button>
+          <h2 class="job-detail-title" id="jobDetailTitle">Job Title</h2>
+        </div>
+        <div class="job-detail-content" id="jobDetailContent">
+          <!-- Job details will be populated by JavaScript -->
+        </div>
+        <div class="job-detail-footer">
+          <button class="btn btn-primary btn-full" id="apply-now">Apply Now</button>
+        </div>
+      </div>
+      
+      <!-- Overlay for job detail sidebar -->
+      <div class="job-detail-overlay" id="jobDetailOverlay"></div>
+    </div>
+
+    <script src="../static/assets/vscript.js"></script>
+  </body>
+</html>

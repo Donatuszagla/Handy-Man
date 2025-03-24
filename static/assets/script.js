@@ -117,5 +117,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
+    const proceed = document.getElementById("form-proceed-button");
+    const signupGoogle = document.querySelector(".sign-up-google");
+    const stepOne = document.getElementById("step-1");
+    const stepTwo = document.getElementById("step-2");
+    if (proceed && signupGoogle && stepOne && stepTwo){
+        proceed.addEventListener("click", () => {
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            if (!username || !email || !password) {
+                alert('Please fill out all fields in Step 1 before proceeding.');
+                return; // Stop if any field is empty
+              }else{
+                signupGoogle.style.visibility = "hidden";
+                stepOne.style.visibility = "hidden";
+                document.querySelector(".sign-up hr").style.visibility = "hidden";
+                stepTwo.style.visibility = "visible";
+              }
+        });
+    }
 
 });

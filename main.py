@@ -1,8 +1,9 @@
-from flask import Flask, render_template, url_for, redirect, request, flash
+from flask import Flask, render_template, url_for, redirect, request, flash, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
+from database import Database
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'AUHDSBKJDHWROIRUGYSHBCGBJ'
@@ -10,6 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+database = Database()
 
 
 class User(db.Model, UserMixin):
@@ -17,6 +19,12 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
+    job_title = db.Column(db.String(250), nullable=False)
+    phone = db.Column(db.Integer, nullable=False)
+    skills = db.Column(db.String(250), nullable=False)
+    location = db.Column(db.String(250), nullable=False)
+    firstname = db.Column(db.String(250), nullable=False)
+    lastname = db.Column(db.String(250), nullable=False)
 
 
 with app.app_context():
@@ -33,6 +41,14 @@ def sign_up():
         username = request.form['username']
         email = request.form['email']
         password_hash = request.form['password']
+        job_title = request.form['job-title']
+        location = request.form['location']
+        phone = request.form['phone']
+        skills = request.form['skills']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+
+        print(job_title, location, phone, skills)
         
         # Check if user already exists
         existing_user = User.query.filter_by(email=email).first()
@@ -44,7 +60,7 @@ def sign_up():
         hashed_password = generate_password_hash(password_hash)
 
         # Create new user
-        new_user = User(username=username, email=email, password_hash=hashed_password)
+        new_user = User(username=username, email=email, password_hash=hashed_password, job_title=job_title, phone=phone, skills=skills, location=location, firstname=firstname, lastname=lastname)
         db.session.add(new_user)
         db.session.commit()
         
@@ -77,8 +93,10 @@ def login():
     return render_template('login.html')
 
 @app.route('/logout', methods=['GET', 'POST'])
+@login_required
 def logout():
     logout_user()
+    flash('Log out successful.', 'success')
     return redirect(url_for('home'))
 
 
@@ -89,45 +107,55 @@ def home():
 
 @app.route('/home/handyman', methods=['GET', 'POST'])
 def browse():
-    return render_template('browse.html', random=random)
+    all_artisans = database.all_artisans
+    return render_template('browse.html', all_artisans=all_artisans)
 
 @app.route('/services', methods=['GET', 'POST'])
 def services():
     return render_template('services.html')
 
 @app.route('/dashboard/inbox', methods=['GET', 'PSOT'])
+@login_required
 def inbox():
     return render_template('inbox.html')
 
 @app.route('/dashboard/review', methods=['GET', 'PSOT'])
+@login_required
 def review():
     return render_template('review.html')
 
 @app.route('/dashboard/analytics', methods=['GET', 'PSOT'])
+@login_required
 def analytics():
     return render_template('analytics.html')
 
 @app.route('/dashboard', methods=['GET', 'POST'])
+@login_required
 def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/add/jobs', methods=['GET', 'POST'])
+@login_required
 def jobs():
     return render_template('addjob.html')
 
 @app.route('/jobs/search', methods=['GET', 'POST'])
+@login_required
 def findjob():
     return render_template('findjob.html')
 
 @app.route('/jobs/availabelz', methods=['GET', 'POST'])
+@login_required
 def availablejob():
     return render_template('availablejob.html')
 
 @app.route('/settings', methods=['GET', 'POST'])
+@login_required
 def settings():
     return render_template('settings.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
     return render_template('profile.html')
 
@@ -136,5 +164,9 @@ def profile():
 def about():
     return render_template('about.html')
 
+@app.route('/view/jobs', methods=['GET', 'POST'])
+def viewjobs():
+    return render_template('viewjobs.html')
+
 if __name__ == "__main__":
-    app.run(debug=False, host="localhost", port=5000)
+    app.run(debug=True, host="localhost", port=5000)
