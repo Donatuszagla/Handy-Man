@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (popup) {
         document.querySelectorAll('.employer').forEach(container => {
             container.addEventListener('click', function () {
+                
                 popup.style.right = '0';
             });
         });
